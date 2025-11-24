@@ -1,9 +1,7 @@
-
 // import React, { useEffect, useState } from "react";
 // import "slick-carousel/slick/slick.css";
 // import "slick-carousel/slick/slick-theme.css";
 // import Slider from "react-slick";
-
 
 // // import list from "../../public/list.json";
 // // const Freebook = () => {
@@ -22,8 +20,6 @@
 //       })
 //       .catch((error) => console.error("Error loading data:", error));
 //   }, []);
-
-
 
 //   var settings = {
 //     dots: true,
@@ -71,7 +67,6 @@
 //             assumenda debitis minus!
 //           </p>
 //         </div>
-      
 
 //       <div>
 //         <Slider {...settings}>
@@ -86,8 +81,6 @@
 // };
 
 // export default Freebook;
-
-
 
 // import React, { useEffect, useState } from "react";
 // import "slick-carousel/slick/slick.css";
@@ -173,14 +166,6 @@
 
 // export default Freebook;
 
-
-
-
-
-
-
-
-
 import React, { useEffect, useState } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -189,7 +174,6 @@ import Cards from "./Cards";
 import axios from "axios";
 
 const Freebook = () => {
-
   const [book, setBook] = useState([]);
   const [filterData, setFilterData] = useState([]);
 
@@ -200,14 +184,15 @@ const Freebook = () => {
   useEffect(() => {
     const getBook = async () => {
       try {
-        const res = await axios.get("http://localhost:4001/book");
+        const res = await axios.get(
+          "https://bookstoreapp-1-7n8m.onrender.com/book"
+        );
         console.log(res.data);
         setBook(res.data);
 
         // 🔥 Backend ke data me se Free category filter
         const freeCourses = res.data.filter((item) => item.category === "Free");
         setFilterData(freeCourses);
-
       } catch (error) {
         console.log(error);
       }
@@ -256,10 +241,10 @@ const Freebook = () => {
         <div>
           <h1 className="font-semibold text-xl pb-2">Free Offered Course</h1>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt impedit
-            magni aspernatur? Voluptatum, ducimus voluptates nobis modi odio error
-            enim dolor nostrum, id quas dolorum itaque perferendis assumenda debitis
-            minus!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt
+            impedit magni aspernatur? Voluptatum, ducimus voluptates nobis modi
+            odio error enim dolor nostrum, id quas dolorum itaque perferendis
+            assumenda debitis minus!
           </p>
         </div>
 
